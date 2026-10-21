@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Székfoglaló</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Székfoglaló Játék</h1>
+
+    <div>
+        <label for="szekszam">Székek száma (10-20): </label>
+        <input type="number" min="10" max="20" value="10" id="szekszam">
+        <button id="startgomb">Játék indítása / Újraindítása</div>button>
+    </div>
+
+    <hr>
+
+    <div id="info">
+        <p id="aktualisjatekos">Aktuális játékos: Játékos 1</p>
+        <p id="status"></p>
+    </div>
+
+    <hr>
+
+    <h3>Székek:</h3>
+    <div id="szekekhelye"></div>
+
+    <hr>
+
+    <h3>Eredmények:</h3>
+    <p id="P1pontok">Játékos 1 összértéke: 0</p>
+    <p id="P2pontok">Játékos 2 összértéke: 0</p>
+    <p id="jatekvege"></p>
+
+
+
+    <!-- <button class="szekek" id="szek1">🪑</button> -->
+</body>
+</html>

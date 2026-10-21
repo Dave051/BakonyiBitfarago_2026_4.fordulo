@@ -1,0 +1,16 @@
+/* fejléc */
+.techtrio{
+    text-align: center; 
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 5px;
+    animation: letterAnim 1500ms forwards;
+    animation-delay: 1s;
+    font-size: large;
+    font-weight: bold;
+    color: rgb(0, 0, 99, 0);
+    background-color: rgb(236, 236, 236);
+}
+/* /fejléc */

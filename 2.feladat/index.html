@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itt a piros, hol a piros? - Kártyajáték</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="game-wrapper">
+    <header class="game-header">
+      <h1 class="game-title">Itt a piros, hol a piros?</h1>
+      <p class="game-subtitle">Kövesd a piros kártyát a cserék során, majd találd el, hol állt meg!</p>
+    </header>
+
+    <section class="scoreboard" aria-label="Eredményjelző">
+      <div class="score-item">
+        <span class="score-label">Győzelem:</span>
+        <span class="score-value win" id="winsCount">0</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">Vereség:</span>
+        <span class="score-value loss" id="lossesCount">0</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">Összes játék:</span>
+        <span class="score-value" id="gamesCount">0</span>
+      </div>
+    </section>
+
+    <section class="controls-panel">
+      <div class="control-group">
+        <label for="speedRange" class="control-label">
+          Keverési sebesség:
+          <span class="speed-badge" id="speedLabel">Normál (450 ms)</span>
+        </label>
+        <div class="slider-container">
+          <span class="slider-hint">Lassú</span>
+          <input type="range" id="speedRange" min="1" max="4" value="2" step="1">
+          <span class="slider-hint">Villámgyors</span>
+        </div>
+      </div>
+
+      <div class="control-group audio-toggle-group">
+        <button id="soundToggleBtn" class="secondary-btn" title="Hang be/ki">
+          Hang: Be
+        </button>
+      </div>
+    </section>
+
+
+    <div class="status-banner" id="statusMessage">
+      Nyomd meg a <strong>"Játék indítása"</strong> gombot a kezdéshez!
+    </div>
+
+
+    <main class="table-area">
+
+      <div class="slots-container" id="slotsContainer">
+        <div class="card-slot" data-slot="0">
+          <span class="slot-marker">1</span>
+        </div>
+        <div class="card-slot" data-slot="1">
+          <span class="slot-marker">2</span>
+        </div>
+        <div class="card-slot" data-slot="2">
+          <span class="slot-marker">3</span>
+        </div>
+      </div>
+
+
+      <div class="cards-layer" id="cardsLayer">
+
+        <div class="card red-card" id="card-red" data-color="piros">
+          <div class="card-inner">
+
+            <div class="card-face card-front">
+              <div class="corner-val top-left">♥ A</div>
+              <div class="center-content">
+                <span class="big-symbol">♥</span>
+                <span class="color-text">PIROS</span>
+              </div>
+              <div class="corner-val bottom-right">♥ A</div>
+            </div>
+
+            <div class="card-face card-back">
+              <div class="back-pattern">
+                <span class="back-logo">♠♥♦♣</span>
+                <span class="back-question">?</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card blue-card" id="card-blue-1" data-color="kék">
+          <div class="card-inner">
+
+            <div class="card-face card-front">
+              <div class="corner-val top-left">♠ K</div>
+              <div class="center-content">
+                <span class="big-symbol">♠</span>
+                <span class="color-text">KÉK</span>
+              </div>
+              <div class="corner-val bottom-right">♠ K</div>
+            </div>
+
+            <div class="card-face card-back">
+              <div class="back-pattern">
+                <span class="back-logo">♠♥♦♣</span>
+                <span class="back-question">?</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card blue-card" id="card-blue-2" data-color="kék">
+          <div class="card-inner">
+
+            <div class="card-face card-front">
+              <div class="corner-val top-left">♣ Q</div>
+              <div class="center-content">
+                <span class="big-symbol">♣</span>
+                <span class="color-text">KÉK</span>
+              </div>
+              <div class="corner-val bottom-right">♣ Q</div>
+            </div>
+
+            <div class="card-face card-back">
+              <div class="back-pattern">
+                <span class="back-logo">♠♥♦♣</span>
+                <span class="back-question">?</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+
+    <div class="action-panel">
+      <button id="startBtn" class="primary-btn">
+        <span class="btn-icon">▶</span> Játék indítása
+      </button>
+    </div>
+
+    <footer class="game-footer">
+      <p>Készítette a TechTrio csapata.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
