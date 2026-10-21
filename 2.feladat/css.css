@@ -1,0 +1,57 @@
+#szekekhelye {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Maga a szék alakú/hátterű doboz */
+.szekdoboz {
+    /* Helyettesíthetsz saját kép URL-lel is: url('szek_ikon.png') */
+    background-image: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+    background-image: url();
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.szekdoboz:hover {
+    transform: translateY(-3px);
+}
+
+/* A dobozban lévő gomb formázása, hogy átlátszóbb és szebb legyen */
+.szekdoboz button {
+    background-color: #ffffff;
+    border: 1px solid #999;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.szekdoboz button:disabled {
+    background-color: #e0e0e0;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Opcionális színek a foglaltság szerint a dobozon */
+.szekdoboz.foglaltp1 {
+    border-color: rgb(0, 199, 0);
+    background-color: rgba(27, 219, 65, 0.308);
+    /* background-color: #ffe3e3; */
+}
+
+.szekdoboz.foglaltp2 {
+    border-color: #4dabf7;
+    background-color: #e7f5ff;
+}
+
+.szekdoboz.tiltott {
+    opacity: 0.6;
+    filter: grayscale(80%);
+}

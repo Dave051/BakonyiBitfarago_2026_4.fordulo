@@ -3,10 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/TT_logo.png">
     <link rel="stylesheet" href="stilus.css">
-    <title>TechTrio | Bakonyi Bitfaragó online forduló | 6. Memória teszt</title>
+    <link rel="stylesheet" href="../alapstilus.css">
+    <title>6. Memória teszt | TechTrio | Bakonyi Bitfaragó online forduló</title>
 </head>
 <body>
     <div class="techtrio">TechTrio</div>
+
+    <main class="memoria-jatek">
+        <header class="jatek-fejlec">
+            <h1>Memória teszt</h1>
+            <p>Jegyezd meg a karikák helyét, majd kattints rájuk növekvő sorrendben!</p>
+        </header>
+
+        <section class="vezerlopanel" aria-label="Játékbeállítások">
+            <label for="karikak-szama">Karikák száma:</label>
+            <select id="karikak-szama">
+                <option value="5" selected>5 karika</option>
+                <option value="6">6 karika</option>
+                <option value="7">7 karika</option>
+                <option value="8">8 karika</option>
+                <option value="9">9 karika</option>
+            </select>
+            <button id="inditas-gomb" type="button">Játék indítása</button>
+            <div class="idojelzo" aria-label="Felhasznált idő">
+                <span>Idő</span>
+                <strong id="ido">0,0 mp</strong>
+            </div>
+        </section>
+
+        <section class="jatekter" aria-label="Memória teszt játéktér">
+            <div id="jatek-allapot" class="jatek-allapot" role="status" aria-live="polite">
+                Válaszd ki a karikák számát, majd indítsd el a játékot!
+            </div>
+            <div id="arena" class="arena" aria-label="A karikák helye"></div>
+        </section>
+    </main>
+
+    <footer class="feladat-lablec">
+        <a class="fooldal-gomb" href="../index.html">Vissza a főoldalra</a>
+        <span>© 2026. Készítette a TechTrio csapata</span>
+    </footer>
+
+    <script src="szkript.js"></script>
 </body>
 </html>

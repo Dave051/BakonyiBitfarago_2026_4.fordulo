@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    background-color: lightgray;
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+/* fejléc */
+.techtrio{
+    text-align: center; 
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 5px;
+    animation: letterAnim 1500ms forwards;
+    animation-delay: 1s;
+    font-size: large;
+    font-weight: bold;
+    color: rgb(0, 0, 99, 0);
+    background-color: rgb(236, 236, 236);
+}
+/* /fejléc */
+
+
+/* vissza gomb bal alul */
+.feladat-lablec {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 5px;
+    background-color: #000000;
+    color: #66aabe;
+    font-size: 0.9rem;
+}
+
+.fooldal-gomb {
+    display: inline-block;
+    padding: 0 8px;
+    border: 1px solid #66aabe;
+    border-radius: 8px;
+    color: #c04646;
+    text-decoration: none;
+}
+
+.fooldal-gomb:hover {
+    background-color: #0f282e;
+}
+
+.fooldal-gomb:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+/* /vissza gomb bal alul */
+
+/* fejléc szöveg animáció */
+@keyframes letterAnim {
+    0% {
+        letter-spacing: -0.5em;
+        color: rgb(0, 0, 99, 0);
+    }
+    100% {
+        letter-spacing: 20px;
+        color: rgb(0, 0, 99, 1);
+    }
+}
+/* /fejléc szöveg animáció */

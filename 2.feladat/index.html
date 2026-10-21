@@ -1,156 +1,50 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Itt a piros, hol a piros? - Kártyajáték</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../img/TT_logo.png">
+    <script src="script2.js" defer></script>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="../alapstilus.css">
+    <title>2. Távolsági székfoglaló | TechTrio | Bakonyi Bitfaragó online forduló</title>
+    
 </head>
 <body>
+    <div class="techtrio">TechTrio</div>
 
-  <div class="game-wrapper">
-    <header class="game-header">
-      <h1 class="game-title">Itt a piros, hol a piros?</h1>
-      <p class="game-subtitle">Kövesd a piros kártyát a cserék során, majd találd el, hol állt meg!</p>
-    </header>
+    <h1>Székfoglaló Játék</h1>
 
-    <section class="scoreboard" aria-label="Eredményjelző">
-      <div class="score-item">
-        <span class="score-label">Győzelem:</span>
-        <span class="score-value win" id="winsCount">0</span>
-      </div>
-      <div class="score-item">
-        <span class="score-label">Vereség:</span>
-        <span class="score-value loss" id="lossesCount">0</span>
-      </div>
-      <div class="score-item">
-        <span class="score-label">Összes játék:</span>
-        <span class="score-value" id="gamesCount">0</span>
-      </div>
-    </section>
-
-    <section class="controls-panel">
-      <div class="control-group">
-        <label for="speedRange" class="control-label">
-          Keverési sebesség:
-          <span class="speed-badge" id="speedLabel">Normál (450 ms)</span>
-        </label>
-        <div class="slider-container">
-          <span class="slider-hint">Lassú</span>
-          <input type="range" id="speedRange" min="1" max="4" value="2" step="1">
-          <span class="slider-hint">Villámgyors</span>
-        </div>
-      </div>
-
-      <div class="control-group audio-toggle-group">
-        <button id="soundToggleBtn" class="secondary-btn" title="Hang be/ki">
-          Hang: Be
-        </button>
-      </div>
-    </section>
-
-
-    <div class="status-banner" id="statusMessage">
-      Nyomd meg a <strong>"Játék indítása"</strong> gombot a kezdéshez!
+    <div>
+        <label for="szekszam">Székek száma (10-20): </label>
+        <input type="number" min="10" max="20" value="10" id="szekszam">
+        <button id="startgomb">Játék indítása / Újraindítása</div>
     </div>
 
+    <hr>
 
-    <main class="table-area">
-
-      <div class="slots-container" id="slotsContainer">
-        <div class="card-slot" data-slot="0">
-          <span class="slot-marker">1</span>
-        </div>
-        <div class="card-slot" data-slot="1">
-          <span class="slot-marker">2</span>
-        </div>
-        <div class="card-slot" data-slot="2">
-          <span class="slot-marker">3</span>
-        </div>
-      </div>
-
-
-      <div class="cards-layer" id="cardsLayer">
-
-        <div class="card red-card" id="card-red" data-color="piros">
-          <div class="card-inner">
-
-            <div class="card-face card-front">
-              <div class="corner-val top-left">♥ A</div>
-              <div class="center-content">
-                <span class="big-symbol">♥</span>
-                <span class="color-text">PIROS</span>
-              </div>
-              <div class="corner-val bottom-right">♥ A</div>
-            </div>
-
-            <div class="card-face card-back">
-              <div class="back-pattern">
-                <span class="back-logo">♠♥♦♣</span>
-                <span class="back-question">?</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="card blue-card" id="card-blue-1" data-color="kék">
-          <div class="card-inner">
-
-            <div class="card-face card-front">
-              <div class="corner-val top-left">♠ K</div>
-              <div class="center-content">
-                <span class="big-symbol">♠</span>
-                <span class="color-text">KÉK</span>
-              </div>
-              <div class="corner-val bottom-right">♠ K</div>
-            </div>
-
-            <div class="card-face card-back">
-              <div class="back-pattern">
-                <span class="back-logo">♠♥♦♣</span>
-                <span class="back-question">?</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="card blue-card" id="card-blue-2" data-color="kék">
-          <div class="card-inner">
-
-            <div class="card-face card-front">
-              <div class="corner-val top-left">♣ Q</div>
-              <div class="center-content">
-                <span class="big-symbol">♣</span>
-                <span class="color-text">KÉK</span>
-              </div>
-              <div class="corner-val bottom-right">♣ Q</div>
-            </div>
-
-            <div class="card-face card-back">
-              <div class="back-pattern">
-                <span class="back-logo">♠♥♦♣</span>
-                <span class="back-question">?</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-
-
-    <div class="action-panel">
-      <button id="startBtn" class="primary-btn">
-        <span class="btn-icon">▶</span> Játék indítása
-      </button>
+    <div id="info">
+        <p id="aktualisjatekos">Aktuális játékos: Játékos 1</p>
+        <p id="status"></p>
     </div>
 
-    <footer class="game-footer">
-      <p>Készítette a TechTrio csapata.</p>
+    <hr>
+
+    <h3>Székek:</h3>
+    <div id="szekekhelye"></div>
+
+    <hr>
+
+    <h3>Eredmények:</h3>
+    <p id="P1pontok">Játékos 1 összértéke: 0</p>
+    <p id="P2pontok">Játékos 2 összértéke: 0</p>
+    <p id="jatekvege"></p>
+
+
+    <footer class="feladat-lablec">
+        <a class="fooldal-gomb" href="../index.html">Vissza a főoldalra</a>
+        <span>© 2026. Készítette a TechTrio csapata</span>
     </footer>
-  </div>
 
-  <script src="script.js"></script>
 </body>
 </html>

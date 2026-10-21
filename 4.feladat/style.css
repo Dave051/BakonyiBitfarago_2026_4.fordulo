@@ -1,0 +1,38 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+#kozep {
+  width: 520px;
+  margin: auto;
+  background-color: white;
+  padding: 10px;
+}
+.gomb {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#terkep {
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  grid-template-rows: repeat(10, 50px);
+  gap: 2px;
+  background-color: orange;
+  margin-top: 20px;
+  border: 2px solid orange;
+}
+.mezo {
+  background-color: #ff3333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+}
+.fal {
+  background-color: #222222;
+}
+.bit {
+  background-color: #3355cc;
+}

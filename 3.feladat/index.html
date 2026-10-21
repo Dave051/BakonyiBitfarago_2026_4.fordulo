@@ -3,39 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Székfoglaló</title>
-    <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="../img/TT_logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../alapstilus.css">
+    <title>3. Itt a piros, hol a piros | TechTrio | Bakonyi Bitfaragó online forduló</title>
 </head>
+
 <body>
-    <h1>Székfoglaló Játék</h1>
+    <div class="techtrio">TechTrio</div>
 
-    <div>
-        <label for="szekszam">Székek száma (10-20): </label>
-        <input type="number" min="10" max="20" value="10" id="szekszam">
-        <button id="startgomb">Játék indítása / Újraindítása</div>button>
+    <h1>Itt a piros, hol a piros</h1>
+    <h2 id="msg">Kattints az indításra!</h2>
+    <div id="controls">
+        <label for="speed">Sebesség:</label>
+        <select id="speed">
+            <option value="800">Lassú</option>
+            <option value="400" selected>Normál</option>
+            <option value="150">Gyors</option>
+        </select>
+        <button id="start-btn">Indítás</button>
+    </div>
+    <div id="game-board">
+        <div class="card" id="card-0" style="left: 20px;"></div>
+        <div class="card" id="card-1" style="left: 160px;"></div>
+        <div class="card" id="card-2" style="left: 300px;"></div>
     </div>
 
-    <hr>
+    <footer class="feladat-lablec">
+        <a class="fooldal-gomb" href="../index.html">Vissza a főoldalra</a>
+        <span>© 2026. Készítette a TechTrio csapata</span>
+    </footer>
 
-    <div id="info">
-        <p id="aktualisjatekos">Aktuális játékos: Játékos 1</p>
-        <p id="status"></p>
-    </div>
-
-    <hr>
-
-    <h3>Székek:</h3>
-    <div id="szekekhelye"></div>
-
-    <hr>
-
-    <h3>Eredmények:</h3>
-    <p id="P1pontok">Játékos 1 összértéke: 0</p>
-    <p id="P2pontok">Játékos 2 összértéke: 0</p>
-    <p id="jatekvege"></p>
-
-
-
-    <!-- <button class="szekek" id="szek1">🪑</button> -->
+    <script src="script.js"></script>
 </body>
+
 </html>

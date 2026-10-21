@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 30px;
+}
+#game-board {
+    position: relative;
+    width: 420px;
+    height: 200px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+.card {
+    width: 100px;
+    height: 150px;
+    position: absolute;
+    top: 25px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: left 0.5s ease;
+    background-color: #555;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, #444 10px, #444 20px);
+}
+#controls {
+    margin-bottom: 20px;
+}
+select,
+button {
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 0 10px;
+}
+h2 {
+    color: #333;
+    height: 30px;
+}

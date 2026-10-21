@@ -1,3 +1,33 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: black;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button {
+    max-width: 100%;
+    margin: 5px;
+    padding: 7px 12px;
+    border: 1px solid rgb(0, 0, 49);
+    border-radius: 8px;
+    background-color: darkcyan;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(22, 156, 156);
+}
+
+button:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
 /* fejléc */
 .techtrio{
     text-align: center; 
@@ -14,3 +44,220 @@
     background-color: rgb(236, 236, 236);
 }
 /* /fejléc */
+
+@keyframes letterAnim {
+    0% {
+        letter-spacing: -0.5em;
+        color: rgb(0, 0, 99, 0);
+    }
+    100% {
+        letter-spacing: 20px;
+        color: rgb(0, 0, 99, 1);
+    }
+}
+
+.memoria-jatek {
+    width: min(900px, calc(100% - 32px));
+    margin: 24px auto 90px;
+}
+
+.jatek-fejlec {
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.jatek-fejlec h1 {
+    margin: 4px 0 8px;
+    color: rgb(0, 0, 99);
+}
+
+.jatek-fejlec p {
+    margin: 6px 0;
+}
+
+.vezerlopanel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding: 12px;
+    border: 1px solid #aaaaaa;
+    border-radius: 8px;
+    background-color: whitesmoke;
+}
+
+.vezerlopanel label {
+    font-weight: bold;
+}
+
+.vezerlopanel select {
+    min-height: 36px;
+    padding: 5px 8px;
+    border: 1px solid #555555;
+    border-radius: 6px;
+    background-color: white;
+    color: black;
+    font: inherit;
+}
+
+.vezerlopanel button {
+    min-height: 36px;
+    font: inherit;
+    font-weight: bold;
+}
+
+.idojelzo {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-left: 8px;
+    color: #333333;
+}
+
+.idojelzo strong {
+    min-width: 70px;
+    color: rgb(0, 0, 99);
+    font-size: 1.2rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.jatekter {
+    padding: 14px;
+    border: 1px solid #aaaaaa;
+    border-radius: 8px;
+    background-color: whitesmoke;
+}
+
+.jatek-allapot {
+    min-height: 24px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.arena {
+    position: relative;
+    width: 100%;
+    height: clamp(320px, 55vw, 500px);
+    overflow: hidden;
+    border: 2px solid #555555;
+    border-radius: 8px;
+    background-color: azure;
+}
+
+.karika {
+    position: absolute;
+    display: grid;
+    width: clamp(48px, 8vw, 72px);
+    aspect-ratio: 1;
+    place-items: center;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 2px solid rgb(0, 0, 99);
+    border-radius: 50%;
+    background-color: darkcyan;
+    color: white;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: bold;
+    line-height: 1;
+    transform: translate(-50%, -50%);
+}
+
+.karika:hover:not(:disabled) {
+    background-color: rgb(22, 156, 156);
+}
+
+.karika--hibas,
+.karika--hibas:hover:disabled {
+    border-color: darkred;
+    background-color: #c62828;
+    color: white;
+}
+
+.karika--sikeres,
+.karika--sikeres:hover:disabled {
+    border-color: darkgreen;
+    background-color: #2e8b57;
+    color: white;
+}
+
+.karika:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 3px;
+}
+
+.karika:disabled {
+    opacity: 1;
+}
+
+/* vissza gomb bal alul */
+.feladat-lablec {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 5px;
+    background-color: #000000;
+    color: #66aabe;
+    font-size: 0.9rem;
+}
+
+.fooldal-gomb {
+    display: inline-block;
+    padding: 0 8px;
+    border: 1px solid #66aabe;
+    border-radius: 8px;
+    color: #c04646;
+    text-decoration: none;
+}
+
+.fooldal-gomb:hover {
+    background-color: #0f282e;
+}
+
+.fooldal-gomb:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+/* /vissza gomb bal alul */
+
+@media (max-width: 480px) {
+    .memoria-jatek {
+        width: calc(100% - 20px);
+        margin-top: 16px;
+    }
+
+    .vezerlopanel {
+        gap: 6px;
+        padding: 10px 6px;
+    }
+
+    .vezerlopanel button {
+        margin: 4px;
+    }
+
+    .idojelzo {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .jatekter {
+        padding: 8px;
+    }
+
+    .arena {
+        height: 360px;
+    }
+
+    .feladat-lablec {
+        padding: 5px 8px;
+    }
+}
