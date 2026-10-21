@@ -44,14 +44,14 @@ body {
 .fooldal-gomb {
     display: inline-block;
     padding: 0 8px;
-    border: 1px solid #66aabe;
+    border: 2px solid #53c7eb;
     border-radius: 8px;
-    color: #c04646;
+    color: #ff0000;
     text-decoration: none;
 }
 
 .fooldal-gomb:hover {
-    background-color: #0f282e;
+    background-color: #1e3f47;
 }
 
 .fooldal-gomb:focus-visible {

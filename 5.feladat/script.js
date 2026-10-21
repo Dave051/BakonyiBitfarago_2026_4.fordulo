@@ -1,67 +1,85 @@
-body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f9f9f9;
-        }
+        let lehetsegesSzinek = ["green", "yellow", "red", "blue", "black"];
         
-        #vezerlok {
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: inline-block;
+        let szinErtekek = {
+            "green": 1,
+            "yellow": 2,
+            "red": 3,
+            "blue": 4,
+            "black": 5
+        };
+
+        let letrehozottVezetekek = [];
+        let megoldasSorrend = [];
+        let aktualisLepes = 0;
+        let jatekMegy = false;
+
+        function generalas() {
+            let darabszam = document.getElementById("darab").value;
+            let doboz = document.getElementById("jatekTer");
+            let uzenetDoboz = document.getElementById("uzenet");
+            
+            doboz.innerHTML = "";
+            uzenetDoboz.innerHTML = "";
+            letrehozottVezetekek = [];
+            megoldasSorrend = [];
+            aktualisLepes = 0;
+            jatekMegy = true;
+
+            for (let i = 0; i < darabszam; i++) {
+                let veletlenIndex = Math.floor(Math.random() * 5);
+                let adottSzin = lehetsegesSzinek[veletlenIndex];
+                
+                letrehozottVezetekek.push({
+                    azonosito: i,
+                    szin: adottSzin
+                });
+
+                let ujVezetek = document.createElement("div");
+                ujVezetek.className = "vezetek";
+                ujVezetek.style.backgroundColor = adottSzin;
+                
+                ujVezetek.onclick = function() {
+                    elvagas(i, ujVezetek);
+                };
+
+                doboz.appendChild(ujVezetek);
+            }
+
+            for (let i = 0; i < letrehozottVezetekek.length; i++) {
+                megoldasSorrend.push(letrehozottVezetekek[i]);
+            }
+
+            megoldasSorrend.sort(function(a, b) {
+                let ertekA = szinErtekek[a.szin];
+                let ertekB = szinErtekek[b.szin];
+                
+                if (ertekA !== ertekB) {
+                    return ertekA - ertekB;
+                } else {
+                    return a.azonosito - b.azonosito;
+                }
+            });
         }
 
-        button {
-            background-color: #2196F3;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 15px;
-        }
+        function elvagas(kivalasztottId, htmlElem) {
+            if (jatekMegy === false) {
+                return;
+            }
 
-        button:hover {
-            background-color: #0b7dda;
-        }
+            let vartVezetek = megoldasSorrend[aktualisLepes];
 
-        label {
-            font-size: 16px;
-            margin-right: 5px;
-        }
+            if (kivalasztottId === vartVezetek.azonosito) {
+                htmlElem.style.visibility = "hidden";
+                aktualisLepes = aktualisLepes + 1;
 
-        input {
-            padding: 5px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 50px;
-        }
-
-        #uzenet {
-            font-size: 22px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #333;
-            min-height: 30px;
-        }
-
-        #jatekTer {
-            margin-top: 10px;
-        }
-
-        .vezetek {
-            width: 40px;
-            height: 300px;
-            cursor: pointer;
-            display: inline-block;
-            margin-right: 10px;
-            border-radius: 3px;
-        }
-
-        .vezetek:hover {
-            opacity: 0.7;
+                if (aktualisLepes === megoldasSorrend.length) {
+                    jatekMegy = false;
+                    document.getElementById("uzenet").innerHTML = "Sikeres hatástalanítás!";
+                    document.getElementById("uzenet").style.color = "green";
+                }
+            } else {
+                jatekMegy = false;
+                document.getElementById("uzenet").innerHTML = "Bumm! Rossz vezetéket vágtál el.";
+                document.getElementById("uzenet").style.color = "red";
+            }
         }
