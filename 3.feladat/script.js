@@ -27,8 +27,17 @@ function jatekbemenet(){
             id: i,
             value: ertek,
             owner: null,
-            blocked
+            blocked: null
         })
         
     }
+
+    jelenlegijatekos = 1
+    jatek = true
+    utolsofoglalasindex = null
+
+    jatekvege.innerText = ''
+    sta
+
+
 }
